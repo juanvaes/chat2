@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link href="http://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Simple Chat App</title>
+  </head>
+  <body>
+    <div class="center">
+      <div class="chat-box">
+        <header>
+          <h1> Watson Chatbot</h1>
+          <span style="flex:1"></span>
+          <span class="close-button">X</span>
+        </header>
+        <section id="message-list"></section>
+      </div>
+      <div class="chat-msg">
+        <!--
+        <input type="text" id="message-input" onkeydown="sendMessage()" placeholder="Type your message...">
+        -->
+        <input type="text" id="message-input" placeholder="Type your message...">
+      </div>
+  </div>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>
