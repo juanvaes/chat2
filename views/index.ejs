@@ -9,18 +9,17 @@
   </head>
   <body>
     <div class="center">
-      <div class="chat-box">
+      <div class="chat-box" id="chat">
         <header>
           <h1> Watson Chatbot</h1>
           <span style="flex:1"></span>
           <span class="close-button">X</span>
         </header>
-        <section id="message-list"></section>
+        <section id="message-list">
+          <div id="test"></div>
+        </section>
       </div>
       <div class="chat-msg">
-        <!--
-        <input type="text" id="message-input" onkeydown="sendMessage()" placeholder="Type your message...">
-        -->
         <input type="text" id="message-input" placeholder="Type your message...">
       </div>
   </div>

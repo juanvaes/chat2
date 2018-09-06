@@ -1,31 +1,43 @@
-
+// Make connection
 var socket = io.connect('http://localhost:3000')
+
+var message = document.getElementById("message-input");
+var test = document.getElementById("test");
 
 /*
 Let's emit an event when someone type enter
 */
 /* Emite events */
-var message = document.getElementById("message-input");
-console.log(message.value);
-console.log(1234);
 message.addEventListener("keypress", function(event) {
   var key = event.which || event.keyCode;
   if(key === 13 && this.value.trim() !== "")
   {
-    sendMessage(this.value, true);
+    // socket
+    socket.emit('msg-client',{
+        message: message.value,
+        user: 'usuario'
+    })
+    //console.log(message.value);
     this.value = "";
   }
 });
 
 /* Listen for events */
 //----------------------------------------------------------------
-// Confirm connection message
-socket.on('connect', function(data){
-    socket.emit('join', 'Client connected');
+socket.on('msg-client', function(data){
+    sendMessage(data, true);
+    socket.emit('msg-assist',{
+      userMsg: data
+    });
+});
+
+socket.on('msg-assist', function(data){
+  sendMessage(data, false);
 });
 
 /* Functions */
 //----------------------------------------------------------------
+
 function sendMessage(message, itsMe) { // ...Mario
     var messageList = document.getElementById("message-list");
     
